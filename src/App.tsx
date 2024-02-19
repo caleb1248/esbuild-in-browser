@@ -8,7 +8,7 @@ globalThis.process = {};
 export const App = () => {
   return (
     <ChakraProvider>
-      <Box bg="teal.900" height="100vh">
+      <Box bg="#1e1e1e" height="100vh">
         <CodeCell />
       </Box>
     </ChakraProvider>

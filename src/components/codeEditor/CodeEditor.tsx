@@ -1,6 +1,7 @@
 import MonacoEditor, { OnMount } from '@monaco-editor/react';
 import React, { useRef, useState } from 'react';
 import { format } from 'prettier';
+import * as babelParser from 'prettier/plugins/babel';
 // import Highlighter from 'monaco-jsx-highlighter';
 
 import { Box, Button } from '@chakra-ui/react';
@@ -32,6 +33,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
       useTabs: true,
       semi: false,
       singleQuote: true,
+      plugins: [babelParser],
     })
       .then((result) => result.replace(/\n$/, ''))
       .then((formatted) => editorRef.current.setValue(formatted));

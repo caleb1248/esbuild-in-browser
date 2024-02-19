@@ -13,14 +13,15 @@ export const bundler = async (rawCode: string) => {
 
   const result = await esbuild.build({
     entryPoints: ['index.js'],
-    bundle: true,
+    // bundle: true,
     write: false,
     plugins: [unpkgPathPlugin(rawCode), fetchPlugin(rawCode)],
-    define: {
-      'process.env.NODE_ENV': '"production"',
-      global: 'window',
-    },
+    // define: {
+    //   'process.env.NODE_ENV': '"production"',
+    //   global: 'window',
+    // },
   });
+  console.log(result.outputFiles[0].text);
 
   return result.outputFiles[0].text;
 };
